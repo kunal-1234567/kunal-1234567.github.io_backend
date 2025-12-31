@@ -6,7 +6,7 @@ dotenv.config();
 const connectDB = async () => {
   try {
     // Connect to local MongoDB
-    await mongoose.connect('mongodb://127.0.0.1:27017/splitzy', {
+    await mongoose.connect('mongodb+srv://kunal:Kunal%402005@cluster0.payiwyw.mongodb.net/splitzy', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

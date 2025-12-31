@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const Router = require('./routes/user.router.js')
 // const bcrypt = require("bcrypt");
-const connectDB= require('./db/db.js')
+const connectDB= require('./db/db.js');
+const user = require("./models/user.js");
 
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api/users',Router);
 app.use('/api',Router);
+app.use("/users",user)
 
 connectDB();
 
