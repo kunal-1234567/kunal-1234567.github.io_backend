@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
 
 
 userSchema.pre("save", async function () {
-  // ye jo 10 hai, ye salt rounds hain, jiska matlab hai ki hashing algorithm kitni baar chalega
+  // This number 10 indicates the salt rounds for hashing
   this.password = await bcrypt.hash(this.password, 10);
 });
 
