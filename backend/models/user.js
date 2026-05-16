@@ -15,6 +15,8 @@ const userSchema = new mongoose.Schema({
 
 
 
+
+
 userSchema.pre("save", async function () {
   // This number 10 indicates the salt rounds for hashing
   this.password = await bcrypt.hash(this.password, 10);

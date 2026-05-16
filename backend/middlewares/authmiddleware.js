@@ -15,7 +15,7 @@ const verifyToken = (req, res, next) => {
     }
     catch (error) {
         console.error("Token verification failed:", error);
-        return res.status(403).json({ message: 'Unauthorized' });
+        return res.status(403).json({ message: 'Session expired. Please login again.' });
     }
 };
 module.exports = { verifyToken };

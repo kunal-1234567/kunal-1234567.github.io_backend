@@ -1,21 +1,17 @@
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
 dotenv.config();
 
 const connectDB = async () => {
   try {
-    // Connect to local MongoDB
-    await mongoose.connect('mongodb+srv://kunal:Kunal%402005@cluster0.payiwyw.mongodb.net/splitzy', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGO_URI);
 
-    console.log(' MongoDB connected successfully');
+    console.log("MongoDB connected successfully");
   } catch (error) {
-    console.error(' MongoDB connection error:', error);
-    process.exit(1); // Exit process if DB connection fails
+    console.error("MongoDB connection error:", error);
+    process.exit(1);
   }
-}; 
+};
 
 module.exports = connectDB;
